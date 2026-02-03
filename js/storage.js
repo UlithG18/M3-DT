@@ -1,4 +1,4 @@
-// Storage module for CRUD operations with users, habits, and session management
+// Storage module for CRUD operations with users, tasks, and session management
 
 export const storage = {
 
@@ -30,7 +30,7 @@ export const storage = {
     },
 
     // Update only the atributtes you send it
-    
+
     async updateUser(user) {
         await fetch(`http://localhost:3000/users/${user.id}`, {
             method: "PATCH",
@@ -39,48 +39,48 @@ export const storage = {
         });
     },
 
-    // // Update only the habits array of a user (PATCH request)
-    // async updateUserHabits(userId, habits) {
-    //     await fetch(`http://localhost:3000/users/${userId}`, {
-    //         method: "PATCH",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({ habits }) // Send only updated habits
-    //     });
-    // },
+    // Update only the tasks array of a user
+    async updateUserTasks(userId, tasks) {
+        await fetch(`http://localhost:3000/users/${userId}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ tasks }) // Send only updated tasks
+        });
+    },
 
-    // // ------------------ Habit Management ------------------
+    // ------------------ Task Management ------------------
 
-    // // Add a new habit to a user's habits array and save to backend
-    // async saveHabit(user, habit) {
-    //     user.habits = user.habits || []; // Ensure habits array exists
-    //     user.habits.push(habit); // Add new habit
-    //     await this.updateUserHabits(user.id, user.habits); // Persist changes
-    // },
+    // Add a new task to a user's tasks array and save to backend
+    async saveTask(user, task) {
+        user.tasks = user.tasks || []; // Ensure tasks array exists
+        user.tasks.push(task); // Add new task
+        await this.updateUserTasks(user.id, user.tasks); // Persist changes
+    },
 
-    // // Get all habits of a user
-    // getHabits(user) {
-    //     if (!user) return []; // Return empty array if user not defined
-    //     return user.habits || [];
-    // },
+    // Get all tasks of a user
+    getTask(user) {
+        if (!user) return []; // Return empty array if user not defined
+        return user.tasks || [];
+    },
 
-    // // Update a specific habit by ID with given updates
-    // async updateHabit(user, habitId, updates) {
-    //     const habit = user.habits.find(h => h.id === habitId);
-    //     if (!habit) return; // Exit if habit not found
+    // Update a specific task 
+    async updateTask(user, taskId, updates) {
+        const task = user.tasks.find(task => task.id === taskId);
+        if (!task) return; // Exit if task not found
 
-    //     // Apply all updates from the updates object
-    //     for (const key in updates) {
-    //         habit[key] = updates[key];
-    //     }
+        // Apply all updates from the updates object
+        for (const key in updates) {
+            task[key] = updates[key];
+        }
 
-    //     await this.updateUserHabits(user.id, user.habits); // Persist changes
-    // },
+        await this.updateUserTasks(user.id, user.tasks); // Persist changes
+    },
 
-    // // Delete a habit by ID from user's habits array
-    // async deleteHabit(user, habitId) {
-    //     user.habits = user.habits.filter(habit => habit.id !== habitId);
-    //     await this.updateUserHabits(user.id, user.habits); // Persist changes
-    // },
+    // Delete a task 
+    async deleteTask(user, taskId) {
+        user.tasks = user.tasks.filter(task => task.id !== taskId);
+        await this.updateUserTasks(user.id, user.tasks); // Persist changes
+    },
 
     // ------------------ Session Management ------------------
 
