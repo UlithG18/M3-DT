@@ -65,7 +65,7 @@ async function userLogin() {
 
     // Redirect based on role
     if (findUser.role === "admin") {
-        window.location.href = 'dashboard.html';
+        window.location.href = 'admin-dashboard.html';
     } else {
         window.location.href = 'tasks.html';
     }

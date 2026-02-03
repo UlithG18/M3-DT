@@ -73,7 +73,7 @@ async function userRegister() {
     storage.saveSession(newUser);
     storage.saveUser(newUser);
 
-    // Redirect to habits page after successful registration
+    // Redirect to tasks page after successful registration
     window.location.href = 'task.html';
 }
 

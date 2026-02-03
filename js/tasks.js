@@ -56,8 +56,6 @@ async function init() {
     progressTasks.textContent = tasks.filter(task => task.status === "In progress").length
     completedTasks.textContent = tasks.filter(task => task.status === "Completed").length
     pendingTasks.textContent = tasks.filter(task => task.status === "Pending").length
-
-
 }
 
 
