@@ -1,33 +1,33 @@
 {
-    "users": [
+  "users": [
+    {
+      "id": "1",
+      "username": "Antony",
+      "email": "tony.21@gmail.com",
+      "password": "123",
+      "profession": "Barbie",
+      "role": "admin"
+    },
+    {
+      "id": "1770065444181",
+      "username": "Ulith",
+      "email": "ulith@gmail.com",
+      "password": "1234",
+      "profession": "Student",
+      "role": "user",
+      "tasks": [
         {
-            "id": "1",
-            "username": "Antony",
-            "email": "tony.21@gmail.com",
-            "password": "123",
-            "profession": "Barbie",
-            "role": "admin"
-        },
-        {
-            "id": "1770065444181",
-            "username": "Ulith",
-            "email": "ulith@gmail.com",
-            "password": "1234",
-            "profession": "Student",
-            "role": "user",
-            "tasks": [
-                {
-                    "id": 1770079696003,
-                    "title": "Hola",
-                    "description": "Hi",
-                    "category": "Practice",
-                    "frequency": "Weekly",
-                    "priority": "High",
-                    "dueDate": "2026-02-13",
-                    "status": "In progress",
-                    "createdat": "1.770.079.696.003"
-                }
-            ]
+          "id": 1770079696003,
+          "title": "Hola",
+          "description": "Hi",
+          "category": "Practice",
+          "frequency": "Weekly",
+          "priority": "High",
+          "dueDate": "2026-02-13",
+          "status": "Pending",
+          "createdat": "1.770.079.696.003"
         }
-    ]
+      ]
+    }
+  ]
 }
