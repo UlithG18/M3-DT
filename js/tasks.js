@@ -12,6 +12,13 @@ let actualUser = null; // The currently logged-in user
 let tasks = []; // User-specific tasks array
 
 
+// Tasks information
+let totalTasks = document.getElementById("total-tasks")
+let progressTasks = document.getElementById("progress-tasks")
+let completedTasks = document.getElementById("completed-tasks")
+let pendingTasks = document.getElementById("pending-tasks")
+
+
 // Get the currently logged-in user session
 const sessionUser = storage.getSession();
 
@@ -43,7 +50,16 @@ async function init() {
     const profileProfess = document.getElementById("profile-profession")
     profileName.textContent = actualUser.username;
     profileProfess.textContent = actualUser.profession;
+
+    // Tasks information
+    totalTasks.textContent = Object.keys(tasks).length
+    progressTasks.textContent = tasks.filter(task => task.status === "In progress").length
+    completedTasks.textContent = tasks.filter(task => task.status === "Completed").length
+    pendingTasks.textContent = tasks.filter(task => task.status === "Pending").length
+
+
 }
+
 
 init();
 
